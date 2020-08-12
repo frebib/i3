@@ -449,6 +449,9 @@ static void handle_screen_change(xcb_generic_event_t *e) {
     croot->rect.width = reply->width;
     croot->rect.height = reply->height;
 
+    init_dpi();
+    x_push_changes();
+
     randr_query_outputs();
 
     scratchpad_fix_resolution();

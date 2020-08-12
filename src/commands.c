@@ -1625,6 +1625,9 @@ void cmd_reload(I3_CMD) {
      * See #4104. */
     config_error_nagbar_pid = command_error_nagbar_pid = -1;
 
+    /* Refresh dpi upon reload */
+    init_dpi();
+
     load_configuration(NULL, C_RELOAD);
     x_set_i3_atoms();
     /* Send an IPC event just in case the ws names have changed */
